@@ -19,7 +19,7 @@
   <ul>
     <% items.forEach(function(item) { %>
       <li>
-        <%= item.name %>
+        <%= item.name %><form action="/item/delete"><input type="hidden" name="<%= item.name %>"><input type="submit" value="Delete"></form>
       </li>
       <% }); %>
   </ul>

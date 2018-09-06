@@ -33,6 +33,10 @@ app.post('/item/add', (req, res) => {
   newItem.save().then(item => res.redirect('/'));
 });
 
+app.post('/item/delete', (req, res) => {
+  Item.findOneAndRemove({name:req.body.name}).then(err=>res.redirect('/'))
+});
+
 const port = 3000;
 
 app.listen(port, () => console.log('Server running...'));
