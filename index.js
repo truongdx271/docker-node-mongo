@@ -34,7 +34,12 @@ app.post('/item/add', (req, res) => {
 });
 
 app.post('/item/delete', (req, res) => {
-  Item.findOneAndRemove({name:req.body.name}).then(err=>res.redirect('/'))
+  Item.findOneAndRemove({name:req.body.name}).then(err=>{
+    if(err){
+      console.log(err);
+    }
+    res.redirect('/')
+  })
 });
 
 const port = 3000;
